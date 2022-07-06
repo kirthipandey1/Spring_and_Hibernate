@@ -14,5 +14,10 @@ public class CoachImpl implements Coach {
 	public String[] facility() {
 		return fortuneService.getMyFortune();
 	}
+	
+	public String[] getFortune() {
+		String[] str = {};
+		return str;
+	}
 
 }
