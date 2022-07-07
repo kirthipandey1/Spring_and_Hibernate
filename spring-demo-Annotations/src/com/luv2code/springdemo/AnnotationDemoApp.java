@@ -17,10 +17,25 @@ public class AnnotationDemoApp {
 		//this is default bean
 		Coach coach = context.getBean("cricketCoach",Coach.class);
 		
+		Coach basketball = context.getBean("basketBall",Coach.class);
+		
 		//call a method on bean
 		System.out.println(theCoach.getDailyWorkout());
 		
+		//call the method to get the daily fortune
+		System.out.println(theCoach.getDailyFortune());
+		
+		System.out.println();
+		
 		System.out.println(coach.getDailyWorkout());
+		
+		System.out.println(coach.getDailyFortune());
+		
+		System.out.println();
+		
+		System.out.println(basketball.getDailyWorkout());
+		
+		System.out.println(basketball.getDailyFortune());
 		
 		//close the container
 		context.close();

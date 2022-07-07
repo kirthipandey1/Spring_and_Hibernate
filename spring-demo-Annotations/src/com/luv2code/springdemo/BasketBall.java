@@ -4,20 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-@Component("theSillyCoach")
-public class TennisCoach implements Coach {
+@Component
+public class BasketBall implements Coach {
 	
-	private FortuneService fortuneService;
-	
-	//constructor injection
+	//field injection
 	@Autowired
-	public TennisCoach(@Qualifier("happyFortuneService")FortuneService fortuneService) {
-		this.fortuneService = fortuneService;
-	}
+	@Qualifier("happyFortuneService")
+	private FortuneService fortuneService;
 
 	@Override
 	public String getDailyWorkout() {
-		return "practice backhand volley";
+		return "practice running everyday";
 	}
 
 	@Override
