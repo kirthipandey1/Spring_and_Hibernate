@@ -37,6 +37,10 @@ public class AnnotationDemoApp {
 		
 		System.out.println(basketball.getDailyFortune());
 		
+		BasketBall b = context.getBean("basketBall",BasketBall.class);
+		
+		System.out.println(b.getEmail()+" "+b.getTeam());
+		
 		//close the container
 		context.close();
 
