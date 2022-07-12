@@ -23,8 +23,20 @@
 		<form:options items="${student.countryOptions}" />
 		
 		</form:select> 
+		<br><br>
 		
+		Favorite Language :
+		Java <form:radiobutton path="favoriteLanguage" value="Java" />
+		C# <form:radiobutton path="favoriteLanguage" value="C#" />
+		Ruby <form:radiobutton path="favoriteLanguage" value="Ruby" />
+		PHP <form:radiobutton path="favoriteLanguage" value="PHP" />
 		
+		<br><br>
+		
+		Operating System :
+		Linux <form:checkbox path="operatingSystem" value="Linux" />
+		MS Windows <form:checkbox path="operatingSystem" value="MS Windows" />
+		Mac OS <form:checkbox path="operatingSystem" value="Mac OS" />
 		
 		<br><br>
 		
