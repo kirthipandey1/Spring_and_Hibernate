@@ -35,6 +35,9 @@ public class CustomerController {
 			@Valid @ModelAttribute("customer") Customer theCustomer,
 			BindingResult theBindingResult) {
 		
+		//use this to get the specific value that you could put in message.properties file
+		System.out.println("Binding Result: "+theBindingResult);
+		
 		if(theBindingResult.hasErrors()) {
 			return "customer-form";
 		}else {
