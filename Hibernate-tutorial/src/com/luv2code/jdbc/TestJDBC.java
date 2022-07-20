@@ -7,7 +7,7 @@ public class TestJDBC {
 
 	public static void main(String[] args) {
 			
-			String jdbcurl = "jdbc:mysql://localhost:3306/hb_student_tracker?useSSL=false&"
+			String jdbcurl = "jdbc:mysql://localhost:3306/hb_student_tracker?allowPublicKeyRetrieval=true&useSSL=false&"
 					+ "serverTimezone=UTC";
 			
 			String user="hbstudent";
