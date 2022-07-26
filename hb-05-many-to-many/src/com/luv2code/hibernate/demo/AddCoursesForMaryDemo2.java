@@ -1,0 +1,68 @@
+package com.luv2code.hibernate.demo;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import com.luv2code.hibernate.demo.entity.Course;
+import com.luv2code.hibernate.demo.entity.Instructor;
+import com.luv2code.hibernate.demo.entity.InstructorDetail;
+import com.luv2code.hibernate.demo.entity.Review;
+import com.luv2code.hibernate.demo.entity.Student;
+
+public class AddCoursesForMaryDemo2 {
+
+	public static void main(String[] args) {
+		
+		//create session factory
+		SessionFactory factory = new Configuration().
+								configure("hibernate.cfg.xml")
+								.addAnnotatedClass(Instructor.class)
+								.addAnnotatedClass(InstructorDetail.class)
+								.addAnnotatedClass(Course.class)
+								.addAnnotatedClass(Review.class)
+								.addAnnotatedClass(Student.class)
+								.buildSessionFactory();
+		
+		//create session
+		Session session = factory.getCurrentSession();
+		
+		try {
+		
+			//start the transaction
+			session.beginTransaction();
+			
+			int theid=2;
+			Student tempStudent = session.get(Student.class, theid);
+			
+			System.out.println("Student is "+tempStudent);
+			
+			System.out.println("Mary's courses "+tempStudent.getCourses());
+			
+			Course temp1 = new Course("Rubik's course : How to speed cube");
+			Course temp2 = new Course("Atari 2600 : Game development");
+			
+			temp1.addStudent(tempStudent);
+			temp2.addStudent(tempStudent);
+			
+			System.out.println("Saving student\n\n");
+			
+			session.save(temp1);
+			session.save(temp2);
+			
+			//commit the transaction
+			session.getTransaction().commit();
+			
+			System.out.println("Done.");
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			
+			session.close();
+			factory.close();
+		}
+		
+	}
+
+}
